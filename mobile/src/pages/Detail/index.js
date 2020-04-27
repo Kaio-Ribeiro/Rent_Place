@@ -1,7 +1,7 @@
 import React from 'react'
 import { useNavigation, useRoute } from '@react-navigation/native'
 import { Feather } from '@expo/vector-icons'
-import { View, Text, Image, TouchableOpacity, Linking } from 'react-native'
+import { View, Text, Image, ScrollView, TouchableOpacity, Linking } from 'react-native'
 import * as MailComposer from 'expo-mail-composer'
 
 import logoImg from '../../assets/logo.png'
@@ -13,7 +13,7 @@ export default function Detail() {
     const route = useRoute()
 
     const residence = route.params.residence
-    const message = 'Olá Kaio, estou entrando em contato pois gostaria de alugar a vaga em sua república'
+    const message = `Olá ${residence.name}, estou entrando em contato pois gostaria de alugar a vaga em sua república`
 
     function navigateBack() {
         navigation.goBack()
@@ -41,33 +41,36 @@ export default function Detail() {
                 </TouchableOpacity>
             </View>
 
-            <View style={styles.residence}>
-                <Text style={[styles.residenceProperty, { marginTop: 0 }]}>TÍTULO:</Text>
-                <Text style={styles.residenceValue}>{ residence.title }</Text>
+            <ScrollView 
+                style={styles.residence}
+                showsVerticalScrollIndicator={false}
+            >
+                    <Text style={[styles.residenceProperty, { marginTop: 0 }]}>TÍTULO:</Text>
+                    <Text style={styles.residenceValue}>{ residence.title }</Text>
 
-                <Text style={styles.residenceProperty}>DESCRIÇÃO:</Text>
-                <Text style={styles.residenceValue}>{ residence.description }</Text>
+                    <Text style={styles.residenceProperty}>DESCRIÇÃO:</Text>
+                    <Text style={styles.residenceValue}>{ residence.description }</Text>
 
-                <Text style={styles.residenceProperty}>LOCALIZAÇÃO:</Text>
-                <Text style={styles.residenceValue}>{ residence.city }/{ residence.uf }</Text>
+                    <Text style={styles.residenceProperty}>LOCALIZAÇÃO:</Text>
+                    <Text style={styles.residenceValue}>{ residence.city }/{ residence.uf }</Text>
 
-                <Text style={styles.residenceProperty}>ENDEREÇO:</Text>
-                <Text style={styles.residenceValue}>{ residence.street }, { residence.house_number }</Text>
+                    <Text style={styles.residenceProperty}>ENDEREÇO:</Text>
+                    <Text style={styles.residenceValue}>{ residence.street }, { residence.house_number }</Text>
 
-                <Text style={styles.residenceProperty}>NÚMERO DE MORADORES:</Text>
-                <Text style={styles.residenceValue}>{ residence.residents_number }</Text>
+                    <Text style={styles.residenceProperty}>NÚMERO DE MORADORES:</Text>
+                    <Text style={styles.residenceValue}>{ residence.residents_number }</Text>
 
-                <Text style={styles.residenceProperty}>NÚMERO DE VAGAS:</Text>
-                <Text style={styles.residenceValue}>{ residence.vacancies_number }</Text>
+                    <Text style={styles.residenceProperty}>NÚMERO DE VAGAS:</Text>
+                    <Text style={styles.residenceValue}>{ residence.vacancies_number }</Text>
 
-                <Text style={styles.residenceProperty}>PREÇO:</Text>
-                <Text style={styles.residenceValue}>
-                    {Intl.NumberFormat('pt-BR', { 
-                        style: 'currency', 
-                        currency: 'BRL'  
-                    }).format(residence.price)}
-                </Text>
-            </View>
+                    <Text style={styles.residenceProperty}>PREÇO:</Text>
+                    <Text style={styles.residenceValue}>
+                        {Intl.NumberFormat('pt-BR', { 
+                            style: 'currency', 
+                            currency: 'BRL'  
+                        }).format(residence.price)}
+                    </Text>
+            </ScrollView>
 
             <View style={styles.contactBox}>
                 <Text style={styles.contactTitle}>Fale com o anunciante!</Text>
