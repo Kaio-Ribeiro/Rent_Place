@@ -23,8 +23,6 @@ export default function Login() {
         try {
             const response = await api.post('sessions', { email })
 
-            AsyncStorage.setItem('userName', response.data.name)
-
             navigation.navigate('Residences')
 
         } catch (err) {

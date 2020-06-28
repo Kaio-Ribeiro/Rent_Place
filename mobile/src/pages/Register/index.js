@@ -24,7 +24,7 @@ export default function Register() {
         navigation.goBack()
     }
 
-    async function handleRegister() {
+    async function handleRegister(e) {
         const data = {
             name,
             password,
@@ -37,8 +37,6 @@ export default function Register() {
         try {
             const response = await api.post('users', data)
             alert('Cadastro realizado')
-
-            AsyncStorage.setItem('userID', response.data.id)
 
             navigation.navigate('Login')
 
