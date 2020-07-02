@@ -1,8 +1,18 @@
 .profile-container {
     width: 100%;
-    max-width: 1180px;
+    max-width: 700px;
     padding: 0 30px;
     margin: 32px auto;
+}
+
+.profile-container header {
+    margin-top: 10px;
+}
+
+.profile-container section h1 {
+    font-size: 40px;
+    margin-bottom: 10px;
+    margin-top: 30px;
 }
 
 .profile-container header {
@@ -20,23 +30,11 @@
 }
 
 .profile-container header a {
+    position: absolute;
     width: 260px;
-    margin-left: auto;
+    margin-left: 547px;
     margin-top: 0;
-}
-
-.profile-container header button {
-    height: 60px;
-    width: 60px;
-    border-radius: 4px;
-    border: 1px solid #dcdce6;
-    background: transparent;
-    margin-left: 16px;
-    transition: border-color 0.2s;
-}
-
-.profile-container header button:hover {
-    border-color: #999;
+    font-size: 20px;
 }
 
 .profile-container h1 {
@@ -44,43 +42,69 @@
     margin-bottom: 24px;
 }
 
-.profile-container ul {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 24px;
-    list-style: none;
-}
-
-.profile-container ul li {
+.profile-container .container {
+    padding-top: 50px;
+    padding-left: 100px;
+    padding-bottom: 40px;
     background: #FFF;
-    padding: 24px;
-    border-radius: 8px;
-    position: relative;
-}
-
-.profile-container ul li button {
-    position: absolute;
-    right: 24px;
-    top: 24px;
-    border: 0;
-}
-
-.profile-container ul li button:hover {
-    opacity: 0.8;
-}
-
-.profile-container ul li strong {
-    display: block;
-    margin-bottom: 16px;
     color: #41414d;
+    border-radius: 8px;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 18px;
+    text-align: left;
 }
 
-.profile-container ul li p + strong {
-    margin-top: 32px;
-}
-
-.profile-container ul li p {
+.profile-container .container p {
+    margin-top: 8px;
+    margin-bottom: 14px;
     color: #737380;
-    line-height: 21px;
-    font-size: 16px;
+}
+
+.profile-container .contact {
+    padding-top: 50px;
+    background: #FFF;
+    box-shadow: 0 0 100px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+}
+
+.profile-container .contact #speak {
+    width: 340px;
+    margin-left: 20%;
+}
+
+.profile-container .contact h2 {
+    text-align: left;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.profile-container .contact h3 {
+    text-align: left;
+    font-size: 22px;
+    color: #737380;
+}
+
+.profile-container .contact button {
+    border-radius: 18px;
+    border: none;
+    height: 80px;
+    width: 30%;
+    align-items: center;
+    justify-content: center;
+    background-color: #e02041;
+    font-size: 18px;
+    color: #FFF;
+    font-weight: bold;
+    margin: 16px;
+    transition: background-color 0.3s;
+}
+
+.profile-container .contact button:hover {
+    opacity: 0.9;
+}
+
+.profile-container .contact .actions {
+    margin-top: 16px;
 }

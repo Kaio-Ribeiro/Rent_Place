@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
-import { FiPower } from 'react-icons/fi';
+import { useHistory, Link } from 'react-router-dom';
+import { FiPower, FiArrowRight } from 'react-icons/fi';
 import logoImg from '../../assets/logo.svg';
 
 import './styles.css';
@@ -51,32 +51,39 @@ export default function Residences() {
     }, [])
 
     return(
-        <div className="new-residence-container">
+        <div className="new-residence-container" id='all'>
         <div>
             <section>
-                <img src={logoImg} alt="Be The Hero" />
-                <strong>Total de {total} repúblicas.</strong>
-                <button onClick={handleLogut} type="button">
-                    <FiPower size={18} color="#E02041" />
-                </button>
-
+                <div className="header-r">
+                    <img src={logoImg} alt="Be The Hero" />
+                    <button onClick={handleLogut} type="button">
+                        <FiPower size={18} color="#E02041" />
+                    </button>
+                    <Link to="/newresidences/">Cadastre uma república</Link>
+                </div>
                 <h1>Bem-vindo</h1>
-                <p>Veja todas as repúblicas com vagas disponíveis na sua cidade.</p>
+                <strong id="total">Total de {total} repúblicas.</strong>
+                <p id="show-residences">Veja todas as repúblicas com vagas disponíveis na sua cidade.</p>
             </section>
 
             <div className="content">
                 {residences.map(residence => (
                     <li key={residence.id}>
-                        <strong>TÍTULO:</strong>
-                        <p>{residence.title}</p>
+                            <section>
+                            <strong>TÍTULO:</strong>
+                            <p>{residence.title}</p>
 
-                        <strong>LOCALIZAÇÃO:</strong>
-                        <p>{residence.city}/{residence.uf}</p>
+                            <strong>LOCALIZAÇÃO:</strong>
+                            <p>{residence.city}/{residence.uf}</p>
 
-                        <strong>PREÇO:</strong>
-                        <p>{Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(residence.preci)}</p>
-
-                        <button type="button" onClick={() => navigateToDetail(residence.id)}>Detalhes</button>
+                            <strong>PREÇO:</strong>
+                            <p>{Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(residence.preci)}</p>
+                            
+                            <span className="go-link" onClick={() => navigateToDetail(residence)}>
+                                Ver mais detalhes
+                                <FiArrowRight id="right" size={16} color="E02041" />
+                                </span>
+                            </section>
                     </li>
                 ))}
             </div>

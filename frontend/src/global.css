@@ -6,6 +6,11 @@
     outline: 0;
     box-sizing: 0;
 }
+#all{
+	height:100%;
+	width:100%;
+	margin:auto;
+}
 
 body {
     font: 400 14px Roboto, sans-serif;
@@ -58,7 +63,7 @@ form textarea {
     filter: brightness(90%);
 }
 
-.back-link {
+.back-link, .go-link {
     display: flex;
     align-items: center;
     margin-top: 40px;
@@ -67,6 +72,10 @@ form textarea {
     text-decoration: none;
     font-weight: 500;
     transition: opacity 0.2s;
+}
+
+.go-link #right {
+    margin-left: 10px;
 }
 
 .back-link svg{
