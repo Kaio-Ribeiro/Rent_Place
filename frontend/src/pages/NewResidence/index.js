@@ -76,7 +76,7 @@ export default function NewIncident() {
                 onChange={e => setCity(e.target.value)}
                 />
                 <input 
-                placeholder="Distritu"
+                placeholder="Distrito"
                 value={district}
                 onChange={e => setDistrict(e.target.value)}
                 />
