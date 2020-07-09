@@ -23,7 +23,13 @@ export default function Login() {
         try {
             const response = await api.post('sessions', { email })
 
-            navigation.navigate('Residences')
+
+        
+            await AsyncStorage.setItem('userID', response.data.id)
+
+            await AsyncStorage.setItem('userName', response.data.name)
+
+            navigation.navigate('CreateResidence')
 
         } catch (err) {
             alert('Falha no login, tente novamente.')
@@ -41,6 +47,7 @@ export default function Login() {
             <TextInput 
                 style={styles.input}
                 placeholder="E-mail"
+                keyboardType="email-address"
                 onChangeText={email => setEmail(email)}
                 defaultValue={email}
             />
@@ -48,6 +55,7 @@ export default function Login() {
             <TextInput 
                 style={styles.input}
                 placeholder="Senha"
+                secureTextEntry={true}
                 onChangeText={password => setPassword(password)}
                 defaultValue={password}
             />

@@ -6,7 +6,7 @@ module.exports = {
 
         const user = await connection('users')
         .where('email', email)
-        .select('name')
+        .select('name', 'id')
         .first()
 
         if(!user) {

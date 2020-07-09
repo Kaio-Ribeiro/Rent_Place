@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Feather } from '@expo/vector-icons'
 import { useNavigation } from '@react-navigation/native'
-import { View, ScrollView, KeyboardAvoidingView, Image, Text, TextInput, TouchableOpacity, Platform, AsyncStorage } from 'react-native'
+import { View, ScrollView, KeyboardAvoidingView, Image, Text, TextInput, TouchableOpacity, Platform } from 'react-native'
 
 import api from '../../services/api'
 
@@ -79,6 +79,7 @@ export default function Register() {
                         <TextInput 
                             style={styles.input}
                             placeholder="Senha"
+                            secureTextEntry={true}
                             onChangeText={password => setPassword(password)}
                             defaultValue={password}
                         />
@@ -86,6 +87,7 @@ export default function Register() {
                         <TextInput 
                             style={styles.input}
                             placeholder="Confirmar Senha"
+                            secureTextEntry={true}
                             onChangeText={confirmPassword => setConfirmPassword(confirmPassword)}
                             defaultValue={confirmPassword}
                         />
@@ -93,6 +95,7 @@ export default function Register() {
                         <TextInput 
                             style={styles.input}
                             placeholder="E-mail"
+                            keyboardType="email-address"
                             onChangeText={email => setEmail(email)}
                             defaultValue={email}
                         />
@@ -100,6 +103,7 @@ export default function Register() {
                         <TextInput 
                             style={styles.input}
                             placeholder="WhatsApp"
+                            keyboardType="numeric"
                             onChangeText={whatsapp => setWhatsapp(whatsapp)}
                             defaultValue={whatsapp}
                         />

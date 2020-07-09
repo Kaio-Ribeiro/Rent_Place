@@ -33,7 +33,20 @@ routes.get('/residences', celebrate({
     })
 }), ResidenceController.index)
 
-routes.post('/residences', ResidenceController.create)
+routes.post('/residences', celebrate({
+    [Segments.BODY]: Joi.object().keys({
+        city: Joi.string().required(),
+        district: Joi.string().required(),
+        street: Joi.string().required(),
+        house_number: Joi.number().required(),
+        uf: Joi.string().required().length(2),
+        title: Joi.string().required(),
+        description: Joi.string().required(),
+        vacancies_number: Joi.number().required(),
+        residents_number: Joi.number().required(),
+        price: Joi.number().required(),
+    })
+}), ResidenceController.create)
 
 routes.delete('/residences/:id', celebrate({
     [Segments.PARAMS]: Joi.object().keys({
